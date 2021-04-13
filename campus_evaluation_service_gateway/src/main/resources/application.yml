@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev   #环境设置
+  application:
+    name: campus-evaluation-service-gateway   #服务名
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848   #nacos服务地址
+    gateway:
+      discovery:
+        locator:
+          enabled: true   #gatway可以发现nacos中的微服务,并自动生成转发路由
+      routes:
+      - id: campus-evaluation-service-core
+        uri: lb://campus-evaluation-service-core
+        predicates:
+        - Path=/*/core/**
+
+# http://网关地址:网关端口/service名称/路由地址
