@@ -2,8 +2,10 @@ package com.design.cloud.core.service;
 
 import com.design.cloud.core.entity.Dict;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.design.cloud.core.entity.dto.ExcelDictDTO;
 
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * <p>
@@ -20,4 +22,17 @@ public interface DictService extends IService<Dict> {
      * @param inputStream
      */
     void importData(InputStream inputStream);
+
+    /**
+     * 查询出所有字典数据
+     * @return
+     */
+    List<ExcelDictDTO> listDictData();
+
+    /**
+     * 根据上级id查找字典数据
+     * @param parentId
+     * @return
+     */
+    List<Dict> listByParentId(Long parentId);
 }

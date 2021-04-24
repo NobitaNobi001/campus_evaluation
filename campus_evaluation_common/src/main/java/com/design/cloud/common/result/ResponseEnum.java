@@ -57,8 +57,10 @@ public enum ResponseEnum {
     WEIXIN_FETCH_USERINFO_ERROR(-603, "获取用户信息失败"),
 
 
-    USER_NOT_NULL(-200, "用户信息不能为空");
-
+    OBJECT_NOT_NULL(-200, "对象信息不能为空"),
+    USER_IS_NULL(-200,"用户不存在"),
+    OBJECT_UPDATE_FAIL(-200,"更新失败"),
+    OBJECT_DELETE_FAIL(-200,"删除失败");
     // 响应状态码
     private Integer code;
 

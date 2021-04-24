@@ -50,7 +50,9 @@ public class ExcelDictDTOListener extends AnalysisEventListener<ExcelDictDTO> {
     @Override
     public void doAfterAllAnalysed(AnalysisContext analysisContext) {
         // 剩余数据存储
-        saveData();
+        if (list.size()!=0){
+            saveData();
+        }
         log.info("所有数据解析完成");
     }
 

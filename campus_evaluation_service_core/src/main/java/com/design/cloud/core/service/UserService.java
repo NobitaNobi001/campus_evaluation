@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.design.cloud.core.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.io.InputStream;
+
 /**
  * <p>
  * 用户信息管理 服务类
@@ -22,5 +24,18 @@ public interface UserService extends IService<User> {
      * @return
      */
     IPage<User> selectUserWithPage(Page userPage,String nickName);
+
+    /**
+     * 批量导入用户信息
+     * @param inputStream
+     */
+    void importUser(InputStream inputStream);
+
+    /**
+     * 根绝userId查询用户
+     * @param userId
+     * @return
+     */
+    User getUserByUserId(Long userId);
 
 }

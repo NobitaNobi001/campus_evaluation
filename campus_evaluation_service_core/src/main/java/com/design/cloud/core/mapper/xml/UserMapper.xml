@@ -25,9 +25,14 @@
         select
         <include refid="baseParam"/>
         from user
-        <if test="nickName != null">
+        <if test="nickName == 'null'">
             <where>
-                nick_name like concat('%',#{nickName},'%')
+                is_deleted = 0
+            </where>
+        </if>
+        <if test="nickName != 'null'">
+            <where>
+                nick_name like concat('%',#{nickName},'%') and is_deleted = 0
             </where>
         </if>
     </select>

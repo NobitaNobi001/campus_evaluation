@@ -53,5 +53,7 @@ public class Dict implements Serializable {
     @TableLogic
     private Boolean deleted;
 
-
+    @ApiModelProperty(value = "表达逻辑概念的属性，和物理表没有关系")
+    @TableField(exist = false)
+    private boolean hasChildren;
 }
