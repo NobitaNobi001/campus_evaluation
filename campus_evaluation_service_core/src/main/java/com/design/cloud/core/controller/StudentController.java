@@ -126,6 +126,8 @@ public class StudentController {
             @ApiParam(value = "学生信息对象", required = true)
             @RequestBody Student student) {
 
+        Assert.notNull(student, ResponseEnum.OBJECT_NOT_NULL);
+
         boolean result = studentService.updateById(student);
 
         Assert.isTrue(result, ResponseEnum.OBJECT_UPDATE_FAIL);

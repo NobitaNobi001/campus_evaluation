@@ -2,10 +2,14 @@ package com.design.cloud.core.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
+
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
+
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -21,13 +25,13 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Student对象", description="学生信息管理")
+@ApiModel(value = "Student对象", description = "学生信息管理")
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "编号")
-      @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty(value = "学生账号")
@@ -41,6 +45,9 @@ public class Student implements Serializable {
 
     @ApiModelProperty(value = "性别(0:男 1:女)")
     private Boolean gender;
+
+    @ApiModelProperty(value = "年级id")
+    private Long gradeId;
 
     @ApiModelProperty(value = "学院id")
     private Long collegeId;
